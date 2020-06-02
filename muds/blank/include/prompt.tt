@@ -1,15 +1,15 @@
-#nop THIS IS A TEMPLATE
-#split 0 2
-#showme {------ *   *   * ------} 1;
+#nop THIS IS A TEMPLATE;
+#split 2 1;
+#nop #showme {------ *   *   * ------} 1;
 
-#nop create adequate prompt for a new character using mud's syntax
+#nop create adequate prompt for a new character using mud's syntax;
 #alias myprompt {
-  prompt >%%1/%Hh %%2/%Mm %%3/%Vv %Ll %Xx %pp%g %r[%e]<
+  prompt <%%h/%Hh %%m/%Mm %%v/%Vmv %Xxp %gg [%r] [%R] [%z]>
 }
 
-#nop hook on mud's prompt
-#nop #gag {^>%1/%2h %3/%4m %5/%6v %7l %8x %9p%10 %11[%12]<%13};
-#action {^>%1/%2h %3/%4m %5/%6v %7l %8x %9p%10 %11[%12]<%13} {
+#nop hook on mud's prompt;
+#gag {^^<%1/%2h %3/%4m %5/%6mv %7xp %8g [%9] [%10] [%11]>};
+#action {^<%1/%2h %3/%4m %5/%6mv %7xp %8g [%9] [%10] [%11]>} {
   #nop << interpret prompt using tintin variables;
   #var hp  %1;
   #var hpm %2;
@@ -17,16 +17,14 @@
   #var mam %4;
   #var mv  %5;
   #var mvm %6;
-  #var lvl %7;
-  #var tnl %8;
-  #format {gold} {%.3d} {%10};
-  #var gold %9$gold;
-  #var loc   %11;
-  #var exits %12;
-  #var trailing "%13";
+  #var tnl %7;
+  #var gold %8;
+  #var loc   %9;
+  #var vnum %10;
+  #var area %11;
   #nop >>;
   #nop << display on prompt split;
-  #showme {<069>$name<099> (<cdb>L$lvl<099>, <cdb>$tnl<099>tnl)<099> at <039>$loc<099>[$exits]} {2};
+  #showme {<069>$name<099> (<cdb>L$lvl<099>, <cdb>$tnl<099>tnl)<099> at <039>$loc<099> [$area] [$vnum]} {2};
   #showme {@colscale{$hp;$hpm}$hp<099>hp @colscale{$ma;$map}$ma<099>ma @colscale{$mv;$mvm}$mv<099>mv - <dda>${gold}<099>G} {1};
   #nop >>;
   #nop << display on main split:;
