@@ -1,8 +1,8 @@
-#nop THIS IS A TEMPLATE
+#nop THIS IS A TEMPLATE;
 
-#nop -------------------------------------
-#nop buffs detection (mud specific syntax)
-#nop -------------------------------------
+#nop -------------------------------------;
+#nop buffs detection (mud specific syntax);
+#nop -------------------------------------;
 
 buffif   fly {Your feet rise off the ground.}
 buffif   fly {You are already airborne.}
@@ -16,8 +16,8 @@ buffif   shield {You are surrounded by a force shield.}
 buffif   shield {You are already shielded from harm.}
 unbuffif shield {Your force shield shimmers then fades away.}
 
-#nop detect invis and detect magic can yield the same message
-#nop -> disambiguate via aliases (if cast success detected, know from which spell it was)
+#nop detect invis and detect magic can yield the same message;
+#nop -> disambiguate via aliases (if cast success detected, know from which spell it was);
 #alias di {
   buffif   {detect inv} {Your eyes tingle.};
   #send {cast 'detect invis'};
