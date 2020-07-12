@@ -58,7 +58,7 @@ else
     exec tmux attach -t $SESSION
   fi
 fi
-#------------------------
+# ------------------------
 # CopyLeft by dalker
 # create date: 2014-02-09
 # modif  date: 2016-07-07

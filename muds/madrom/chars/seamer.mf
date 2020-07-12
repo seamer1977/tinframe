@@ -1,2 +1,2 @@
 #nop map last location recall for seamer
-loadmap midgaard 2
+loadmap midgaard 4

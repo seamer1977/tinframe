@@ -1,1 +1,2 @@
-#echo no map information saved for 
+#nop map last location recall for 
+loadmap midgaard 4

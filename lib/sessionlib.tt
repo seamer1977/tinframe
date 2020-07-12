@@ -102,7 +102,7 @@
     #line log {$memfile} {%1};
   };
 };
-#nop >>
+#nop >>;
 #alias recallchar { #nop <<;
   #format {memfile} {%s%s%s} {chars/} {%1} {.mf};
   #read {$memfile};
@@ -111,10 +111,10 @@
 #nop >>
 #nop >>
 #nop << default versions of 'onconnect', 'postlogin', 'onactive', 'prequit', 'quit' override, 'onquit', 'postquit', 'ontimeout', 'posttimeout';
-#alias onconnect {#nop override this alias on mud tt file if necessary}
+#alias onconnect {#nop override this alias on mud tt file if necessary};
 #alias postlogin {#nop override this alias on mud tt file if necessary};
 
-#alias onactive  {setuppanes; #nop overridden by multilib if loaded}
+#alias onactive  {setuppanes; #nop overridden by multilib if loaded};
 
 #alias prequit {
   #nop stuff to be done before 'quit' command is sent to mud;
@@ -142,7 +142,7 @@
 #alias postquit {
   #nop extra bits of quit handling after map is closed;
   #nop override this alias on mud tt file if necessary;
-  #nop e.g.: "memalso {#nop extra stuff};"
+  #nop e.g.: "memalso {#nop extra stuff};";
 }
 
 #alias ontimeout {
@@ -156,9 +156,9 @@
   #nop override this alias on mud tt file if necessary;
   postquit;
 }
-#nop >>
+#nop >>;
 
-#nop -- setting up tmux panes --
+#nop -- setting up tmux panes --;
 #alias setuppanes { #nop << optional: give char as argument (otherwise $char is used);
   #nop map file apparently shouldn't be symbolic link, or it lags.... :-(;
   #var maplogfile {panes/map.txt};
@@ -187,7 +187,7 @@
 }; #nop >>;
 setuppanes; #nop setuppanes when tinrame first invoked, and again when reloading lib;
 
-#nop -- aliases about logging in characters --
+#nop -- aliases about logging in characters --;
 #alias loginsequence { #nop << override this alias on mud tt file if necessary;
   $name;
   $pass;
@@ -219,7 +219,7 @@ setuppanes; #nop setuppanes when tinrame first invoked, and again when reloading
   };
   #unvar index;
 }; #nop >>;
-#nop------------------------
-#nop CopyLeft by dalker
-#nop create date: 2016-05-28
-#nop modif  date: 2016-07-07
+#nop ------------------------;
+#nop CopyLeft by dalker;
+#nop create date: 2016-05-28;
+#nop modif  date: 2016-07-07;

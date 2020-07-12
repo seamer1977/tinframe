@@ -1,6 +1,6 @@
 #nop .-----------------.
 #nop |   status log    |
-#nop .-----------------.
+#nop .-----------------.;
 #alias statushelp { #nop << help alias;
     #echo {--- TinFrame status pane handling --- };
     #echo {showstatus                  : update status pane (usually automatic) };
@@ -45,7 +45,7 @@
 #class statuslib open;
 #nop >>;
 
-#nop formatting a number with a power of ten prefix (k or M)
+#nop formatting a number with a power of ten prefix (k or M);
 #function prefixnum { #nop << call with {number;[prefixcolor|space]};
   #if { %1 < 1000} {
     #math thenum { %1 };
@@ -202,7 +202,7 @@
     flagoff {%1};
   };
 };
-#nop >>
+#nop >>;
 
 #nop property status handling;
 #alias sproperty { #nop << sproperty {key} {value};
@@ -212,7 +212,7 @@
     #var {statusprops[%1]} {%2};
     showstatus;
   };
-}; #nop >>
+}; #nop >>;
 #alias spropclear { #nop << clears all if no argument;
   #if {"%1" == ""} {
     #var statusprops {};
@@ -268,7 +268,7 @@
   };
 };
 #nop >>;
-#nop << tossbuff{name} -- removes buff from all tables, removes all if no argument
+#nop << tossbuff{name} -- removes buff from all tables, removes all if no argument;
 #alias tossbuff {
   #if {"%1" == ""} {
     #var autobuffs   {};
@@ -285,7 +285,7 @@
   };
   showstatus;
 }
-#nop >>
+#nop >>;
 
 #nop ready status handling
 #nop << isready/isntready {skill|spell} - show whether skill/spell is ready to use or not;
@@ -316,7 +316,7 @@
 #alias isreadyif   {#high {^%2} {$readycol}; #act {^%2} {isready {%1}}};
 #alias isntreadyif {#high {^%2} {<bda>}; #act {^%2} {isntready {%1}}};
 #nop >>;
-#nop << tossready{name} -- clears all if no argument
+#nop << tossready{name} -- clears all if no argument;
 #alias tossready {
   #if {"%1" == ""} {
     #var dispready {};
@@ -327,10 +327,10 @@
   };
   showstatus;
 }
-#nop >>
+#nop >>;
 
-#nop booleans provided for use in conditionals
-#nop << @flagon{flag} @flagoff{flag} @buffon{buff} @buffoff{buff} @isready{skill} @isntready{skill}
+#nop booleans provided for use in conditionals;
+#nop << @flagon{flag} @flagoff{flag} @buffon{buff} @buffoff{buff} @isready{skill} @isntready{skill};
 #function flagon {
     #if { "$statusflags[%1]" == "on" } {
       #return 1; #nop true;
@@ -373,10 +373,10 @@
       #return 1; #nop true;
     };
 }
-#nop >>
+#nop >>;
 
 #nop loop on buffs / flags (buggy!! only works on very simple actions)
-#nop << foreachbuff {action on %1}, foreachflag {action on %1}
+#nop << foreachbuff {action on %1}, foreachflag {action on %1};
 #alias foreachbuff {
   #alias oneachbuff {%1};
   #foreach {$dispbuffs[]} {buff} {oneachbuff {$buff}};
@@ -390,10 +390,10 @@
   #unvar flag;
   #unvar oneachflag;
 }
-#nop >>
+#nop >>;
 
 #nop modification of autobuff/custombuff (actual use to be implemented in mud)
-#nop << autobuff{name}{minmana}, custombuff{name}{action}
+#nop << autobuff{name}{minmana}, custombuff{name}{action};
 #alias autobuff {
   #var autobuffs[%1] {%2};
 }
@@ -401,13 +401,13 @@
   #var custombuffs[%1] {%2};
 }
 #nop >>
-#nop << stopbuff{name} -- removes buff from auto-rebuff table 
+#nop << stopbuff{name} -- removes buff from auto-rebuff table; 
 #alias stopbuff {
   #unvar autobuffs[%1];
   showstatus;
 }
-#nop >>
-#nop ------------------------
-#nop CopyLeft by dalker
-#nop create date: 2016-04-14
-#nop modif  date: 2016-07-06
+#nop >>;
+#nop ------------------------;
+#nop CopyLeft by dalker;
+#nop create date: 2016-04-14;
+#nop modif  date: 2016-07-06;
