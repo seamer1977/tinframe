@@ -19,7 +19,7 @@
 #nop N.B.: whatever comes next overrides the library, includes and char's definitions
 #nop << login handling
 #nop login request detection;
-#act {^By which name would you like to be known?} {
+#act {^By what name should your psychologist call you?} {
   loginas; #nop with no arguments, loginas gives a list of possible arguments;
 }
 #alias loginsequence {

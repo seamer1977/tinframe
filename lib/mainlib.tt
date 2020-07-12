@@ -1,14 +1,14 @@
-#nop ----------------------------------------- 
-#nop  Common tintin scripts (mud independent)
-#nop -----------------------------------------
-#class mainlib kill
-#class mainlib open
+#nop ----------------------------------------- ;
+#nop  Common tintin scripts (mud independent);
+#nop -----------------------------------------;
+#class mainlib kill;
+#class mainlib open;
 
-#nop -----------------------------------------
-#nop tinframe help
-#nop -----------------------------------------
-#nop << What's expected of caller: (doc)
-#nop - caller is called 'main.tt' (for reloader macro F12)
+#nop -----------------------------------------;
+#nop tinframe help;
+#nop -----------------------------------------;
+#nop << What's expected of caller: (doc);
+#nop - caller is called 'main.tt' (for reloader macro F12);
 #nop - caller's dir has subdirs 'include/', 'chars/', 'map/' and 'log/'
 #nop - variables '$mudname' '$mudhost' and '$mudport' have been defined
 #nop - class 'temp' opened at the end of caller's script
@@ -35,7 +35,7 @@
 #nop - alias 'goto <dest>' and macro <F1> : set destination and walk there
 #nop - aliases 'mapsymbol', 'mapexit', 'mapname'
 #nop and from included statuslib.tt:
-#nop >>
+#nop >>;
 #alias tfhelp { #nop <<;
   #if { "%1" == "" } {
     #echo {--- TinFrame help --- };
@@ -66,7 +66,7 @@
 #nop -------------------------------------------------------
 #nop aspects of tinframe not worthy of a separate class file
 #nop -------------------------------------------------------
-#nop << base config: color patch, unicode
+#nop << base config: color patch, unicode;
 #config {color patch} {on};
 
 #nop make sure text is handled as Unicode by the client;
@@ -86,10 +86,10 @@
   #echo {** Done reloading scripts **};
 };
 
-#nop  log in  with F9
+#nop  log in  with F9;
 #macro {\e[20~} {#ses $mudname $mudhost $mudport};
-#nop >>
-#nop << '@colscale{foo;bar}' gives color based on foo/bar interpreted as a % (from TinTin++ website examples)
+#nop >>;
+#nop << '@colscale{foo;bar}' gives color based on foo/bar interpreted as a % (from TinTin++ website examples);
 #function {colscale} {
   #switch {10 * %1 / %2} {
     #case {0} {#return <faa>};
@@ -106,12 +106,12 @@
   }
 } 
 #nop >>
-#nop << '@colpercent{foo;bar}' gives back foo/bar written as percentage with adequate color (spinoff variant of the above)
+#nop << '@colpercent{foo;bar}' gives back foo/bar written as percentage with adequate color (spinoff variant of the above);
 #function {colpercent} {
   #math temp {%1* 100 / %2};
   #return @colscale{%1;%2}$temp<099>%;
 }
-#nop >>
+#nop >>;
 
 #nop -----------------------------------------
 #nop  Include other tintin class files
@@ -122,7 +122,7 @@
 #alias subclassinclude  {#class %2 kill; #class %2 read %1/%2.tt};
 #alias libinclude       {#class %1 kill; #class %1 read $libdir/%1.tt};
 #nop >>
-#nop << include library classes
+#nop << include library classes;
 libinclude loglib;
 libinclude maplib;
 libinclude sessionlib;
@@ -140,7 +140,7 @@ libinclude statuslib;
 #nop << (re)load local include classes as well as char and map classes, if any;
 #script {localincludes} {cd include; ls *.tt | sed -e "s/.tt$//"};
 #var included {};
-#foreach $localincludes[] index {
+#foreach *localincludes[] index {
   classinclude $localincludes[$index];
   #var included {$included $localincludes[$index]};
 };
@@ -171,10 +171,10 @@ libinclude statuslib;
 } {
   #echo {not on a map};
 };
-#nop >>
+#nop >>;
 
 #echo {TinFrame main lib (re)loaded};
-#nop ------------------------
-#nop CopyLeft by dalker
-#nop create date: 2014-02-12
-#nop modif  date: 2016-07-05
+#nop ------------------------;
+#nop CopyLeft by dalker;
+#nop create date: 2014-02-12;
+#nop modif  date: 2016-07-05;

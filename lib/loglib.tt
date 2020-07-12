@@ -33,12 +33,12 @@
 }
 #nop >>;
 
-#nop << "logs" for panes - log files set up in sessionlib
+#nop << "logs" for panes - log files set up in sessionlib;
 #alias loglog  {#line log $loglogfile  %0};
 #alias chatlog {#line log $chatlogfile %0};
 #alias statlog {#line log $statlogfile %0};
 #alias maplog  {#line log $maplogfile  %0};
-#nop >>
+#nop >>;
 #nop << log [on|off|filename] (all log into dated file (default) or named file - expanded from a TinTin++ website example);
 #alias {log} {
   #if {"%0" == "on"} {
@@ -74,7 +74,7 @@
     #showme Turn logging on or off?
   };
 }
-#nop >>
+#nop >>;
 
 #nop { -- turns out the following is not needed, as <abc> codes do get translated correctly --;
 #nop << console colors, for use with standard logs;
@@ -94,9 +94,9 @@
 #var clmagenta {[38;5;13m};
 #var clcyan   {[38;5;14m};
 #var clwhite  {[38;5;15m};
-#nop >>
+#nop >>;
 }
-#nop------------------------
-#nop CopyLeft by dalker
-#nop create date: 2016-05-28
-#nop modif  date: 2016-07-05
+#nop ------------------------;
+#nop CopyLeft by dalker;
+#nop create date: 2016-05-28;
+#nop modif  date: 2016-07-05;
