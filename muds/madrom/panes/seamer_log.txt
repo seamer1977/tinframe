@@ -1,0 +1,2 @@
+[0;32;44mLogged in as seamer on 2020.07.11 - 20:53[0;39;49m
+* * * disconnected from MadROM on 2020.07.11 - 21:03 * * *

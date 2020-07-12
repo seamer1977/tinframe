@@ -1,0 +1,3 @@
+* * * connected to MadROM on 2020.07.11 - 20:44 * * *
+* * * disconnected from MadROM on 2020.07.11 - 20:48 * * *
+* * * connected to MadROM on 2020.07.11 - 20:53 * * *

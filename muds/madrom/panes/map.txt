@@ -1,0 +1,7 @@
+#CLASS {temp} OPEN
+
+#VARIABLE         {activesession}  {mad}
+#VARIABLE         {char}  {seamer}
+#VARIABLE         {charnames}  {{1}{seamer}}
+
+#CLASS {temp} CLOSE

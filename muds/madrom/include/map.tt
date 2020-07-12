@@ -1,0 +1,25 @@
+#nop THIS IS A TEMPLATE;
+
+#nop -----------------------------------------;
+#nop  Extra aliases if mud doesn't use them;
+#nop -----------------------------------------;
+#alias mu {#map undo}
+#alias ml {#map leave}
+#alias mr {#map return}
+#alias ms {mapsymbol %1}
+#alias mn {mapname %1}
+#alias md {redrawmap}
+#alias mx {mapexit %0}
+
+#nop -----------------------------------------;
+#nop  Possible entry points to the map;
+#nop -----------------------------------------;
+
+#act {^Before the East Gates of Thiscity} {loadmap thiscity eastgate;}
+
+#nop -----------------------------------------;
+#nop   Map move auto-undos;
+#nop -----------------------------------------;
+
+#act {^Alas, you cannot go that way.} {#map undo}
+#act {^The %1 is closed.} {#map undo; open %1}

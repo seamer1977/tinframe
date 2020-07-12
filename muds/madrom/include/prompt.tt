@@ -1,0 +1,57 @@
+#nop THIS IS A TEMPLATE;
+#split 2 1;
+#nop #showme {------ *   *   * ------} 1;
+
+#nop create adequate prompt for a new character using mud's syntax;
+#alias myprompt {
+  prompt <%%h/%Hh %%m/%Mm %%v/%Vmv %Xxp %gg [%r] [%R] [%z]>
+}
+
+#nop hook on mud's prompt;
+#gag {^^<%1/%2h %3/%4m %5/%6mv %7xp %8g [%9] [%10] [%11]>};
+#action {^<%1/%2h %3/%4m %5/%6mv %7xp %8g [%9] [%10] [%11]>} {
+  #nop << interpret prompt using tintin variables;
+  #var hp  %1;
+  #var hpm %2;
+  #var ma  %3;
+  #var mam %4;
+  #var mv  %5;
+  #var mvm %6;
+  #var tnl %7;
+  #var gold %8;
+  #var loc   %9;
+  #var vnum %10;
+  #var area %11;
+  #nop >>;
+  #nop << display on prompt split;
+  #showme {<069>$name<099> (<cdb>L$lvl<099>, <cdb>$tnl<099>tnl)<099> at <039>$loc<099> [$area] [$vnum]} {2};
+  #showme {@colscale{$hp;$hpm}$hp<099>hp @colscale{$ma;$map}$ma<099>ma @colscale{$mv;$mvm}$mv<099>mv - <dda>${gold}<099>G} {1};
+  #nop >>;
+  #nop << display on main split:;
+
+  #nop ... any variations since last prompt;
+  #math varhp   { $hp  - $prevhp };
+  #math varma   { $ma  - $prevma };
+  #math varmv   { $mv  - $prevmv };
+  #math vargold { $gold - $prevgold };
+
+  #var delta {};
+  #if { $varhp   > 0 } { #var delta {$delta <ada>+$varhp hp<099>} };
+  #if { $varhp   < 0 } { #var delta {$delta <daa>$varhp hp<099>} };
+  #if { $varma   > 0 } { #var delta {$delta <ada>+$varma ma<099>} };
+  #if { $varma   < 0 } { #var delta {$delta <daa>$varma ma<099>} };
+  #if { $varmv   > 0 } { #var delta {$delta <ada>+$varmv mv<099>} };
+  #if { $varmv   < 0 } { #var delta {$delta <daa>$varmv mv<099>} };
+  #if { $vargold > 0 } { #var delta {$delta <dda>+$vargold gold<099>} };
+  #if { $vargold < 0 } { #var delta {$delta <dda>$vargold gold<099>} };
+  #if { "$delta" != "" } { #showme {<$delta >} };
+
+  #var prevhp   $hp;
+  #var prevma   $ma;
+  #var prevmv   $mv;
+  #var prevgold $gold;
+
+  #nop ... and any extra trailing content grabbed by mistake;
+  #if { "$trailing != "" }  { #showme {> $trailing}};
+  #nop >>;
+};
